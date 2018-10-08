@@ -10,7 +10,7 @@ namespace _01._03
     {
         ///<image url="$(ProjectDir)\img01.png"/>
         ///<image url="$(ProjectDir)\img06.png"/>
-        ///< image url="$(ProjectDir)\img02.png"/>
+        ///<image url="$(ProjectDir)\img02.png"/>
         static void Main(string[] args)
         {
 
@@ -24,6 +24,10 @@ namespace _01._03
                 Console.WriteLine(stringWriter);
             }
 
+            using (var fileStream = new FileStream("Loja.xml", FileMode.Create, FileAccess.Write))
+            {
+                xmlSerializer.Serialize(fileStream, dados);
+            }
                 
 
             //AQUI VEM O CÓDIGO DO SEGUNDO SISTEMA
