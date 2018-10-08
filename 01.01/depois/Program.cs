@@ -1,18 +1,29 @@
 ﻿using _01._01;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace _01._03
 {
     class Program
     {
-            ///<image url="$(ProjectDir)\img01.png"/>
+        ///<image url="$(ProjectDir)\img01.png"/>
+        //////<image url="$(ProjectDir)\img06.png"/>
         static void Main(string[] args)
         {
 
             //INÍCIO DO CÓDIGO DO PRIMEIRO SISTEMA
+            var dados = ObterDados();
+            var xmlSerializer = new XmlSerializer(typeof(LojaDeFilmes));
 
+            using (var stringWriter = new StringWriter())
+            {
+                xmlSerializer.Serialize(stringWriter, dados);
+                Console.WriteLine(stringWriter);
+            }
 
+                
 
             //AQUI VEM O CÓDIGO DO SEGUNDO SISTEMA
 
