@@ -28,10 +28,19 @@ namespace _01._03
             {
                 xmlSerializer.Serialize(fileStream, dados);
             }
-                
+
 
             //AQUI VEM O CÓDIGO DO SEGUNDO SISTEMA
-
+            var xmlSerializer2 = new XmlSerializer(typeof(LojaDeFilmes));
+            LojaDeFilmes lojaDeFilmes;
+            using (var fileStream = new FileStream("Loja.xml", FileMode.Open, FileAccess.Read))
+            {
+                lojaDeFilmes = (LojaDeFilmes)xmlSerializer2.Deserialize(fileStream);
+            }
+            foreach (var filme in lojaDeFilmes.Filmes)
+            {
+                Console.WriteLine(filme.Titulo);
+            }                
 
             Console.ReadKey();
 
