@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Xml.Serialization;
 
 namespace _01._01
 {
@@ -18,7 +17,6 @@ namespace _01._01
     public class Director
     {
         public string Name { get; set; }
-        [XmlIgnore]
         public int NumberOfMovies;
     }
 
