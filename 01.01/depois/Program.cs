@@ -11,36 +11,13 @@ namespace _01._03
             ///<image url="$(ProjectDir)\img01.png"/>
         static void Main(string[] args)
         {
-            
+
             //INÍCIO DO CÓDIGO DO PRIMEIRO SISTEMA
-            LojaDeFilmes loja = ObterDados();
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(LojaDeFilmes));
-            using (StringWriter stringWriter = new StringWriter())
-            {
-                xmlSerializer.Serialize(stringWriter, loja);
-                Console.WriteLine(stringWriter);
-            }
-            using (FileStream fileStream = new FileStream("Loja.xml", FileMode.Create, FileAccess.Write))
-            {
-                xmlSerializer.Serialize(fileStream, loja);
-            }
 
-            //AQUI VIRIA O CÓDIGO DO SEGUNDO SISTEMA
-            XmlSerializer xmlSerializer2 = new XmlSerializer(typeof(MovieStore));
+            //AQUI VEM O CÓDIGO DO SEGUNDO SISTEMA
 
-            MovieStore movieStore;
 
-            using (FileStream fileStream =
-                new FileStream("Loja.xml", FileMode.Open, FileAccess.Read))
-            {
-                movieStore = (MovieStore)xmlSerializer2.Deserialize(fileStream);
-            }
-
-            foreach (var movie in movieStore.Movies)
-            {
-                Console.WriteLine(movie.Title);
-            }
             Console.ReadKey();
 
         }
