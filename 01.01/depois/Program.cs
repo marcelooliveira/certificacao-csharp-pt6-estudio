@@ -1,8 +1,6 @@
 ﻿using _01._01;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
 
 namespace _01._03
 {
@@ -13,6 +11,7 @@ namespace _01._03
         {
 
             //INÍCIO DO CÓDIGO DO PRIMEIRO SISTEMA
+
 
 
             //AQUI VEM O CÓDIGO DO SEGUNDO SISTEMA
