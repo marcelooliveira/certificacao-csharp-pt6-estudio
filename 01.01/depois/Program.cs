@@ -9,7 +9,8 @@ namespace _01._03
     class Program
     {
         ///<image url="$(ProjectDir)\img01.png"/>
-        //////<image url="$(ProjectDir)\img06.png"/>
+        ///<image url="$(ProjectDir)\img06.png"/>
+        ///< image url="$(ProjectDir)\img02.png"/>
         static void Main(string[] args)
         {
 
