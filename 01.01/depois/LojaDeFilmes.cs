@@ -1,27 +1,38 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace _01._01
 {
-    public class LojaDeFilmes
+    [XmlRoot("MovieStore")]
+    public class LojaDeFilmes //MovieStore
     {
-        public List<Diretor> Diretores = new List<Diretor>();
-        public List<Filme> Filmes = new List<Filme>();
+        [XmlArray("Directors")]
+        public List<Diretor> Diretores = new List<Diretor>(); //Directors
+        [XmlArray("Movies")]
+        public List<Filme> Filmes = new List<Filme>(); //Movies
         public static void AdicionarFilme(Filme filme)
         {
             // Aqui vai a lógica de inserção de filme...
         }
     }
 
-    public class Diretor
+    [XmlType("Director")]
+    public class Diretor //Director
     {
-        public string Nome { get; set; }
+        [XmlElement("Name")]
+        public string Nome { get; set; } //Name
+        [XmlIgnore]
         public int NumeroFilmes;
     }
 
-    public class Filme
+    [XmlType("Movie")]
+    public class Filme //Movie
     {
-        public Diretor Diretor { get; set; }
-        public string Titulo { get; set; }
-        public string Ano { get; set; }
+        [XmlElement("Director")]
+        public Diretor Diretor { get; set; } //Director
+        [XmlElement("Title")]
+        public string Titulo { get; set; } //Title
+        [XmlElement("Year")]
+        public string Ano { get; set; } //Year
     }
 }
