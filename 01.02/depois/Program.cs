@@ -15,6 +15,8 @@ namespace _01._02
     {
         static void Main(string[] args)
         {
+            //1) JSON com JavaScriptSerializer
+
             var loja = ObterDados();
             var javascriptSerializer = new JavaScriptSerializer();
             var json = javascriptSerializer.Serialize(loja);
