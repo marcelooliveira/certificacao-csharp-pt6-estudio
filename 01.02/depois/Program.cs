@@ -13,15 +13,7 @@ namespace _01._02
     {
         static void Main(string[] args)
         {
-            //SERIALIZAÇÃO JSON
 
-            //1) usando JavaScriptSerializer
-            Console.WriteLine("1) usando JavaScriptSerializer");
-         
-            //2) usando Json.NET (NewtonSoft)
-            //Console.WriteLine("2) usando Json.NET (NewtonSoft)");
-
-            Console.ReadKey();
         }
 
         private static LojaDeFilmes ObterDados()
