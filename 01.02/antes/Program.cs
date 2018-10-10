@@ -1,50 +1,25 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
 
 namespace _01._02
 {
+    ///<image url="$(ProjectDir)/img01.png"/>
+    ///<image url="$(ProjectDir)/img02.png"/>
+
     class Program
     {
         static void Main(string[] args)
         {
-            LojaDeFilmes loja = ObterDados();
-            string json;
+            //SERIALIZAÇÃO JSON
 
             //1) usando JavaScriptSerializer
             Console.WriteLine("1) usando JavaScriptSerializer");
-            var serializer = new JavaScriptSerializer();
-            json = serializer.Serialize(loja);
-            Console.WriteLine(json);
-            LojaDeFilmes copiaLoja = serializer.Deserialize<LojaDeFilmes>(json);
-            foreach (var filme in copiaLoja.Filmes)
-            {
-                Console.WriteLine(filme.Titulo);
-            }
-            Console.WriteLine();
-         
+
             //2) usando Json.NET (NewtonSoft)
-            MovieStore movieStore;
-            Console.WriteLine("2) usando Json.NET (NewtonSoft)");
-            json = JsonConvert.SerializeObject(loja);
-            Console.WriteLine(json);
-            movieStore = JsonConvert.DeserializeObject<MovieStore>(json);
-
-            foreach (var filme in movieStore.Movies)
-            {
-                Console.WriteLine(filme.Title);
-            }
-
-            //https://www.newtonsoft.com/json
-            ///< image url="$(ProjectDir)/img01.png"/>
-
+            //Console.WriteLine("2) usando Json.NET (NewtonSoft)");
 
             Console.ReadKey();
         }
