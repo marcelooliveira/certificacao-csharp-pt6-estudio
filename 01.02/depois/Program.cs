@@ -27,7 +27,6 @@ namespace _01._02
             {
                 streamWriter.Write(json);
             }
-
         }
 
         private static LojaDeFilmes ObterDados()
