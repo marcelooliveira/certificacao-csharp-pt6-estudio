@@ -1,6 +1,4 @@
 ﻿{
-  "Curso": {
-    "Id": 123,
-    "Nome": "Certificação C#"
-  } 
+  "Id": 123,
+  "Nome": "Certificação C#"
 }
