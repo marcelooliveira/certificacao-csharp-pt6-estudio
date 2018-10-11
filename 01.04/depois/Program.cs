@@ -10,56 +10,13 @@ namespace _01._04
     {
         static void Main(string[] args)
         {
-            LojaDeFilmes loja = ObterDados();
-            string json;
+            var dados = ObterDados();
+            var serializer = new DataContractSerializer(typeof(LojaDeFilmes));
 
-            ////1) usando DataContractSerializer
-            //Console.WriteLine("1) usando DataContractSerializer");
-            DataContractSerializer serializer1 = new DataContractSerializer(typeof(LojaDeFilmes));
-            using (FileStream outputStream =
-                new FileStream("Filmes.xml", FileMode.OpenOrCreate, FileAccess.Write))
+            using (var fileStream = new FileStream("Loja.xml", FileMode.Create, FileAccess.Write))
             {
-                serializer1.WriteObject(outputStream, loja);
+                serializer.WriteObject(fileStream, dados);
             }
-
-            MovieStore movieStore;
-            DataContractSerializer serializer2 = new DataContractSerializer(typeof(MovieStore));
-
-            using (FileStream inputStream =
-            new FileStream("Filmes.xml", FileMode.Open, FileAccess.Read))
-            {
-                movieStore = (MovieStore)serializer2.ReadObject(inputStream);
-            }
-
-            foreach (var movie in movieStore.Movies)
-            {
-                Console.WriteLine(movie.Title);
-            }
-
-            //2) usando DataContractJsonSerializer
-            Console.WriteLine("2) usando DataContractJsonSerializer");
-            var serializer3 = new DataContractJsonSerializer(typeof(MovieStore));
-            var stream = new MemoryStream();
-
-            using (var writer = new StreamWriter(stream))
-            {
-                serializer3.WriteObject(stream, loja);
-                using (var reader = new StreamReader(stream))
-                {
-                    stream.Position = 0;
-                    json = reader.ReadToEnd();
-                    Console.WriteLine(json);
-                    stream.Position = 0;
-                    movieStore = (MovieStore)serializer3.ReadObject(reader.BaseStream);
-                }
-            }
-            foreach (var movie in movieStore.Movies)
-            {
-                Console.WriteLine(movie.Title);
-            }
-            Console.WriteLine();
-
-            Console.ReadKey();
         }
 
         private static LojaDeFilmes ObterDados()
