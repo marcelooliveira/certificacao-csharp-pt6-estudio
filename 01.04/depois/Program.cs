@@ -10,13 +10,7 @@ namespace _01._04
     {
         static void Main(string[] args)
         {
-            var dados = ObterDados();
-            var serializer = new DataContractSerializer(typeof(LojaDeFilmes));
 
-            using (var fileStream = new FileStream("Loja.xml", FileMode.Create, FileAccess.Write))
-            {
-                serializer.WriteObject(fileStream, dados);
-            }
         }
 
         private static LojaDeFilmes ObterDados()
