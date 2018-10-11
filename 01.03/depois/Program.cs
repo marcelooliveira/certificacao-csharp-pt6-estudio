@@ -10,31 +10,14 @@ using System.Threading.Tasks;
 
 namespace _01._03
 {
+    ///<image url="$(ProjectDir)/img01.png"/>
+    ///<image url="$(ProjectDir)/img02.png"/>
+
     class Program
     {
         static void Main(string[] args)
         {
-            LojaDeFilmes loja = ObterDados();
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream outputStream =
-            new FileStream("Loja.bin", FileMode.OpenOrCreate, FileAccess.Write))
-            {
-                formatter.Serialize(outputStream, loja);
-            }
-
-            LojaDeFilmes objetoDestino;
-            using (FileStream inputStream = new FileStream("Loja.bin", FileMode.Open, FileAccess.Read))
-            {
-                objetoDestino = (LojaDeFilmes)formatter.Deserialize(inputStream);
-            }
-
-            foreach (var filme in objetoDestino.Filmes)
-            {
-                Console.WriteLine(filme.Titulo);
-            }
-
-            Console.ReadKey();
         }
 
         private static LojaDeFilmes ObterDados()
@@ -138,34 +121,5 @@ namespace _01._03
             };
         }
 
-    }
-
-    [Serializable]
-    class Diretor
-    {
-        public string Nome { get; set; }
-        [NonSerialized]
-        public int NumeroFilmes;
-    }
-
-    [Serializable]
-    class Filme
-    {
-        public Diretor Diretor { get; set; }
-        public string Titulo { get; set; }
-        public string Ano { get; set; }
-    }
-
-    [Serializable]
-    class LojaDeFilmes
-    {
-        public List<Diretor> Diretores = new List<Diretor>();
-        public List<Filme> Filmes = new List<Filme>();
-        public static LojaDeFilmes TestData()
-        {
-            LojaDeFilmes result = new LojaDeFilmes();
-            // ...
-            return result;
-        }
     }
 }

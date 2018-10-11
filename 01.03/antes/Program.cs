@@ -10,31 +10,13 @@ using System.Threading.Tasks;
 
 namespace _01._03
 {
+    ///<image url="$(ProjectDir)/img01.png"/>
+    ///<image url="$(ProjectDir)/img02.png"/>
+
     class Program
     {
         static void Main(string[] args)
         {
-            LojaDeFilmes loja = ObterDados();
-
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream outputStream =
-            new FileStream("Loja.bin", FileMode.OpenOrCreate, FileAccess.Write))
-            {
-                formatter.Serialize(outputStream, loja);
-            }
-
-            LojaDeFilmes objetoDestino;
-            using (FileStream inputStream = new FileStream("Loja.bin", FileMode.Open, FileAccess.Read))
-            {
-                objetoDestino = (LojaDeFilmes)formatter.Deserialize(inputStream);
-            }
-
-            foreach (var filme in objetoDestino.Filmes)
-            {
-                Console.WriteLine(filme.Titulo);
-            }
-
-            Console.ReadKey();
         }
 
         private static LojaDeFilmes ObterDados()
