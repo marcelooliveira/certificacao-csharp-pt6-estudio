@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace _01._03
 {
+    [Serializable]
     public class LojaDeFilmes
     {
         public List<Diretor> Diretores = new List<Diretor>();
@@ -12,12 +14,14 @@ namespace _01._03
         }
     }
 
+    [Serializable]
     public class Diretor
     {
         public string Nome { get; set; }
         public int NumeroFilmes;
     }
 
+    [Serializable]
     public class Filme
     {
         public Diretor Diretor { get; set; }
