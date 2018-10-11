@@ -27,6 +27,14 @@ namespace _01._02
             {
                 streamWriter.Write(json);
             }
+
+            var copiaDaLoja = (LojaDeFilmes)javascriptSerializer.Deserialize(json, typeof(LojaDeFilmes));
+            foreach (var filme in copiaDaLoja.Filmes)
+            {
+                Console.WriteLine(filme.Titulo);
+            }
+
+            Console.ReadKey();
         }
 
         private static LojaDeFilmes ObterDados()
