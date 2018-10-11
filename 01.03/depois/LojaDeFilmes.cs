@@ -18,6 +18,7 @@ namespace _01._03
     public class Diretor
     {
         public string Nome { get; set; }
+        [NonSerialized]
         public int NumeroFilmes;
     }
 
