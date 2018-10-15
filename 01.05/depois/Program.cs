@@ -19,7 +19,6 @@ namespace _01._05
                 serializer.WriteObject(fileStream, loja);
             }
 
-            Console.ReadKey();
         }
 
         private static LojaDeFilmes ObterDados()

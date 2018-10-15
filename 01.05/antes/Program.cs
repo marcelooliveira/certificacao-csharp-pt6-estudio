@@ -10,7 +10,15 @@ namespace _01._05
     {
         static void Main(string[] args)
         {
-            Console.ReadKey();
+            LojaDeFilmes loja = ObterDados();
+
+            var serializer = new DataContractSerializer(typeof(LojaDeFilmes));
+
+            using (var fileStream = new FileStream("Loja.xml", FileMode.Create, FileAccess.Write))
+            {
+                serializer.WriteObject(fileStream, loja);
+            }
+
         }
 
         private static LojaDeFilmes ObterDados()
