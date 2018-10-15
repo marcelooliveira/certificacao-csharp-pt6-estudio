@@ -10,27 +10,6 @@ namespace _01._05
     {
         static void Main(string[] args)
         {
-            LojaDeFilmes loja = ObterDados();
-
-            DataContractSerializer formatter = new DataContractSerializer(typeof(LojaDeFilmes));
-            using (FileStream outputStream =
-                new FileStream("Filmes.xml", FileMode.OpenOrCreate, FileAccess.Write))
-            {
-                formatter.WriteObject(outputStream, loja);
-            }
-
-            LojaDeFilmes inputData;
-            using (FileStream inputStream =
-            new FileStream("Filmes.xml", FileMode.Open, FileAccess.Read))
-            {
-                inputData = (LojaDeFilmes)formatter.ReadObject(inputStream);
-            }
-
-            foreach (var diretor in inputData.Diretores)
-            {
-                Console.WriteLine(diretor.Nome);
-            }
-
             Console.ReadKey();
         }
 
@@ -133,74 +112,6 @@ namespace _01._05
                     }
                 }
             };
-        }
-    }
-
-    [Serializable]
-    public class Diretor : ISerializable
-    {
-        public string Nome { get; set; }
-        public int NumeroFilmes;
-        public string Resumo { get; set; }
-
-        public Diretor(SerializationInfo info, StreamingContext context)
-        {
-            Resumo = info.GetString("Resumo");
-        }
-
-        public Diretor()
-        {
-        }
-
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("Resumo", $"O diretor {0} tem {1} filmes disponíveis.");
-        }
-
-        [OnSerializing()]
-        internal void OnSerializingMethod(StreamingContext context)
-        {
-            Console.WriteLine($"Antes da serialização do diretor: {this.Nome}");
-        }
-
-        [OnSerialized()]
-        internal void OnSerializedMethod(StreamingContext context)
-        {
-            Console.WriteLine($"Depois da serialização do diretor: {this.Nome}");
-        }
-
-        [OnDeserializing()]
-        internal void OnDeserializingMethod(StreamingContext context)
-        {
-            Console.WriteLine($"Antes da serialização do diretor: {this.Nome}");
-        }
-
-        [OnDeserialized()]
-        internal void OnDeserializedMethod(StreamingContext context)
-        {
-            Console.WriteLine($"Depois da serialização do diretor: {this.Nome}");
-        }
-    }
-
-    [Serializable]
-    public class Filme
-    {
-        public Diretor Diretor { get; set; }
-        public string Titulo { get; set; }
-        public string Ano { get; set; }
-    }
-
-    [Serializable]
-    public class LojaDeFilmes
-    {
-        public List<Diretor> Diretores = new List<Diretor>();
-        public List<Filme> Filmes = new List<Filme>();
-        public static LojaDeFilmes TestData()
-        {
-            LojaDeFilmes result = new LojaDeFilmes();
-            // ...
-            return result;
         }
     }
 }
