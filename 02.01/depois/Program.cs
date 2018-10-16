@@ -30,6 +30,9 @@ namespace _02._01
             Console.WriteLine("O primeiro elemento é:" + empresas[0]);
             //último elemento:
             Console.WriteLine("O último elemento é:" + empresas[empresas.Length - 1]);
+                                                               
+            ///<image url="$(ProjectDir)\img6.png"/>
         }
     }
 }
+
