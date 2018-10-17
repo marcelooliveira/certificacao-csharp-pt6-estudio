@@ -57,6 +57,7 @@ namespace _02._01
                 string empresa = empresas[i];
                 Console.WriteLine(empresa);
             }
+            Console.WriteLine();
         }
     }
     ///< image url="$(ProjectDir)\img6.png"/>
