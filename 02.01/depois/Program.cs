@@ -107,5 +107,6 @@ namespace _02._01
         }
     }
     ///<image url="$(ProjectDir)\img1.png"/>
+    ///<image url="$(ProjectDir)\img2.png"/>
 }
 
