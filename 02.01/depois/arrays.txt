@@ -1,10 +1,4 @@
-﻿//Localizando índice da primeira ocorrência no array
-//Localizando índice da última ocorrência no array
-//Revertendo a sequência do array
-//Revertendo NOVAMENTE a sequência do array
-//Redimensionando um array (truncando a última posição)
-//Redimensionando um array (deixando a última posição vazia)
-//Ordenando o Array pela ordem natural dos elementos (alfabética)
+﻿//Ordenando o Array pela ordem natural dos elementos (alfabética)
 //Copiando um Array em outro
 //Clonando um Array em um novo Array (note o cast as string[])
 //Limpando alguns índices do Array
