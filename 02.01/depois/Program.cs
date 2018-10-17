@@ -31,7 +31,7 @@ namespace _02._01
             //último elemento:
             Console.WriteLine("O último elemento é:" + empresas[empresas.Length - 1]);
                                                                
-            ///<image url="$(ProjectDir)\img6.png"/>
+            ///< image url="$(ProjectDir)\img6.png"/>
         }
     }
 }
