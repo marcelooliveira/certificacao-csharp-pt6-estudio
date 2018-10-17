@@ -1,4 +1,1 @@
-﻿//Ordenando o Array pela ordem natural dos elementos (alfabética)
-//Copiando um Array em outro
-//Clonando um Array em um novo Array (note o cast as string[])
-//Limpando alguns índices do Array
+﻿
