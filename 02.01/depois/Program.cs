@@ -29,8 +29,8 @@ namespace _02._01
             string[] empresas = { alura, caelum, casaDoCodigo };
 
 
-            ///< image url="$(ProjectDir)\img6.png"/>
         }
     }
+    ///< image url="$(ProjectDir)\img6.png"/>
 }
 
