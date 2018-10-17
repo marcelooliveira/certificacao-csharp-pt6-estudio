@@ -46,6 +46,8 @@ namespace _02._01
 
             Console.WriteLine("Primeiro elemento: " + empresas[0]);
             Console.WriteLine("Último elemento: " + empresas[empresas.Length - 1]);
+
+
         }
 
         private static void Imprimir(string[] empresas)
