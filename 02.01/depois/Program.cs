@@ -10,9 +10,9 @@ namespace _02._01
             string caelum = "Caelum";
             string casaDoCodigo = "Casa do Código";
 
-            Console.WriteLine(alura);
-            Console.WriteLine(caelum);
-            Console.WriteLine(casaDoCodigo);
+            //Console.WriteLine(alura);
+            //Console.WriteLine(caelum);
+            //Console.WriteLine(casaDoCodigo);
 
             //MATRIZ = ARRAY
 
