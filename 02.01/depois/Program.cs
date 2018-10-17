@@ -106,6 +106,6 @@ namespace _02._01
             Console.WriteLine();
         }
     }
-    ///< image url="$(ProjectDir)\img6.png"/>
+    ///<image url="$(ProjectDir)\img1.png"/>
 }
 
