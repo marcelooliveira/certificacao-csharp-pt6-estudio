@@ -7,17 +7,32 @@ namespace _02._02
     {
         static void Main(string[] args)
         {
+            //declarando as variáveis iniciais
+            string alura = "Alura";
+            string caelum = "Caelum";
+            string casaDoCodigo = "Casa do Código";
+
+            //PROBLEMA: começar com um array vazio
+            //SOLUÇÃO: trocar um array por uma lista
+            List<string> empresas = new List<string>();
+
+            //PROBLEMA: adicionar mais elementos
+            //SOLUÇÃO: usar o método Add
+            empresas.Add(alura);
+            empresas.Add(caelum);
+            empresas.Add(casaDoCodigo);
+
+            //PROBLEMA: começando com uma lista já populada
+            //SOLUÇÃO: a mesma do array
+
+            empresas = new List<string> { alura, caelum, casaDoCodigo };
+
+            //PROBLEMA: imprimir a lista
+            //SOLUÇÃO: varrer os elementos da lista
+
+            Imprimir(empresas);
 
             #region problemas
-            ///declarando as variáveis iniciais
-            ///PROBLEMA: começar com um array vazio
-            ///SOLUÇÃO: trocar um array por uma lista
-            ///PROBLEMA: adicionar mais elementos
-            ///SOLUÇÃO: usar o método Add
-            ///PROBLEMA: começando com uma lista já populada
-            ///SOLUÇÃO: a mesma do array
-            ///PROBLEMA: imprimir a lista
-            ///SOLUÇÃO: varrer os elementos da lista
             ///PROBLEMA: Pegando o primeiro elemento
             ///SOLUÇÃO: Usar índice, como no array
             ///PROBLEMA: Pegando o último elemento
@@ -49,6 +64,25 @@ namespace _02._02
             ///PROBLEMA: remover os dois últimos elementos
             ///SOLUÇÃO: Usar RemoveRange
             #endregion
+        }
+
+        private static void Imprimir(List<string> empresas)
+        {
+            //for (int i = 0; i < empresas.Count; i++)
+            //{
+            //    var empresa = empresas[i];
+            //    Console.WriteLine(empresa);
+            //}
+
+            //foreach (var empresa in empresas)
+            //{
+            //    Console.WriteLine(empresa);
+            //}
+
+            empresas.ForEach( (empresa) => 
+            {
+                Console.WriteLine(empresa);
+            });
         }
     }
 }
