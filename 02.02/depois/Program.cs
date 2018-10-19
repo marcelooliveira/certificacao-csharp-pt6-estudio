@@ -103,6 +103,8 @@ namespace _02._02
             {
                 Console.WriteLine(filme);
             }
+
+            Console.WriteLine();
         }
     }
 
