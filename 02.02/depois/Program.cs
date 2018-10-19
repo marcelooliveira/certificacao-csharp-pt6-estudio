@@ -35,19 +35,30 @@ namespace _02._02
             var rogue = new Filme("Rogue One", 2016);
             var ultimo = new Filme("Episódio VIII: Os Últimos Jedi", 2017);
 
-            ///TAREFA: criar uma coleção vazia, que irá crescer aos poucos
+            //TAREFA: criar uma coleção vazia, que irá crescer aos poucos
+            List<Filme> cronologia = new List<Filme>();
 
-            ///TAREFA: checar a capacidade da lista
+            //TAREFA: checar a capacidade da lista
+            Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
-            ///TAREFA: adicionar o filme "Episódio IV -Uma nova esperança"
+            //TAREFA: adicionar o filme "Episódio IV -Uma nova esperança"
+            cronologia.Add(esperanca);
 
-            ///TAREFA: checar novamente a capacidade da lista
+            //TAREFA: checar novamente a capacidade da lista
+            Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
-            ///TAREFA: Adicionar no final: Império Contra Ataca e Retorno de Jedi
+            //TAREFA: Adicionar no final: Império Contra Ataca e Retorno de Jedi
+            //cronologia.Add(imperio);
+            //cronologia.Add(retorno);
+            cronologia.AddRange(new List<Filme> { imperio, retorno });
 
-            ///TAREFA: Declarar a lista com inicialização simplificada
+            //TAREFA: Declarar a lista com inicialização simplificada
+            cronologia = new List<Filme> { esperanca, imperio, retorno };
 
-            ///TAREFA: imprimir a cronologia
+            //TAREFA: imprimir a cronologia
+            Imprimir(cronologia);
 
             ///TAREFA: inserir Ameaça Fantasma no início da cronologia
 
@@ -78,6 +89,20 @@ namespace _02._02
             ///TAREFA: exibir filmes em ordem de lançamento
 
             ///TAREFA: exibir filmes da trilogia inicial (posições 4, 5 e 6)
+        }
+
+        private static void Imprimir(List<Filme> lista)
+        {
+            //for (int i = 0; i < cronologia.Count; i++)
+            //{
+            //    Filme filme = cronologia[i];
+            //    Console.WriteLine(filme);
+            //}
+
+            foreach (var filme in lista)
+            {
+                Console.WriteLine(filme);
+            }
         }
     }
 
