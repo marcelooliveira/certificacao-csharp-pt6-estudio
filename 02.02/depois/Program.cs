@@ -110,10 +110,6 @@ namespace _02._02
             trilogiaOriginal.RemoveAll( (filme) => filme.Ano > 1983  );
             Imprimir(trilogiaOriginal);
 
-            ///TAREFA: exibir primeiro filme da cronologia
-
-            ///TAREFA: exibir último filme da cronologia
-
             ///TAREFA: exibir filmes em ordem alfabética
 
             ///TAREFA: exibir filmes em ordem de lançamento
