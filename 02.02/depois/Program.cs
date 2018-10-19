@@ -110,14 +110,23 @@ namespace _02._02
             trilogiaOriginal.RemoveAll( (filme) => filme.Ano > 1983  );
             Imprimir(trilogiaOriginal);
 
-            ///TAREFA: exibir filmes em ordem alfabética
+            //TAREFA: exibir filmes em ordem alfabética
+            var ordemAlfabetica = new List<Filme>(filmesComAtores);
+            ordemAlfabetica.Sort();
+            Imprimir(ordemAlfabetica);
 
-            ///TAREFA: exibir filmes em ordem de lançamento
+            //TAREFA: exibir filmes em ordem de lançamento
+            var ordemLancamento = new List<Filme>(filmesComAtores);
+            ordemLancamento.Sort(  (filme1, filme2) => filme1.Ano.CompareTo(filme2.Ano)  );
+            Imprimir(ordemLancamento);
 
-            ///TAREFA: exibir filmes da trilogia inicial (posições 4, 5 e 6)
+            //TAREFA: exibir filmes da trilogia inicial (posições 4, 5 e 6)
+            var trilogiaInicial = new Filme[3];
+            ordemLancamento.CopyTo(3, trilogiaInicial, 0, 3);
+            Imprimir(trilogiaInicial);
         }
 
-        private static void Imprimir(List<Filme> lista)
+        private static void Imprimir(IEnumerable<Filme> lista)
         {
             //for (int i = 0; i < cronologia.Count; i++)
             //{
@@ -134,7 +143,7 @@ namespace _02._02
         }
     }
 
-    public class Filme
+    public class Filme : IComparable
     {
         public Filme(string titulo, int ano)
         {
@@ -144,6 +153,19 @@ namespace _02._02
 
         public string Titulo { get; set; }
         public int Ano { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            Filme esta = this;
+            Filme outra = obj as Filme;
+
+            if (outra == null)
+            {
+                return 1;
+            }
+
+            return esta.Titulo.CompareTo(outra.Titulo);
+        }
 
         public override string ToString()
         {
