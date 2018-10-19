@@ -60,17 +60,34 @@ namespace _02._02
             //TAREFA: imprimir a cronologia
             Imprimir(cronologia);
 
-            ///TAREFA: inserir Ameaça Fantasma no início da cronologia
+            //TAREFA: inserir Ameaça Fantasma no início da cronologia
+            int posicao = 1;
+            cronologia.Insert(posicao - 1, ameaca);
+            Imprimir(cronologia);
 
-            ///TAREFA: Inserir na segunda posição: Ataque dos Clones, Guerra dos Clone, Vingança dos Sith
+            //TAREFA: Inserir na segunda posição: Ataque dos Clones, Guerra dos Clone, Vingança dos Sith
+            posicao = 2;
+            var novosFilmes = new [] { ataque, guerraClones, vinganca, rebels };
+            cronologia.InsertRange(posicao - 1, novosFilmes);
+            Imprimir(cronologia);
 
-            ///TAREFA: adicionar Despertar da Força no fim da cronologia
+            //TAREFA: adicionar Despertar da Força no fim da cronologia
+            cronologia.Add(despertar);
+            Imprimir(cronologia);
 
-            ///TAREFA: checar novamente a capacidade da lista
+            //TAREFA: checar novamente a capacidade da lista
+            Console.WriteLine("tamanho da lista: " + cronologia.Count);
+            Console.WriteLine("capacidade da lista: " + cronologia.Capacity);
 
-            ///TAREFA: inserir Rogue One antes de Uma Nova Esperança
+            //TAREFA: inserir Rogue One antes de Uma Nova Esperança
+            //cronologia[5] = rogue;
+            var indiceEsperanca =  cronologia.IndexOf(esperanca);
+            cronologia.Insert(indiceEsperanca, rogue);
+            Imprimir(cronologia);
 
-            ///TAREFA: adicionar O Último Jedi ao final da cronologia
+            //TAREFA: adicionar O Último Jedi ao final da cronologia
+            cronologia.Add(ultimo);
+            Imprimir(cronologia);
 
             ///TAREFA: exibir a cronologia inversa
 
