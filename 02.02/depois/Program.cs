@@ -35,112 +35,55 @@ namespace _02._02
             var rogue = new Filme("Rogue One", 2016);
             var ultimo = new Filme("Episódio VIII: Os Últimos Jedi", 2017);
 
-            //TAREFA: criar uma coleção vazia, que irá crescer aos poucos
-            List<Filme> cronologia = new List<Filme>();
+            ///TAREFA: criar uma coleção vazia, que irá crescer aos poucos
 
-            //TAREFA: checar a capacidade da lista
-            Console.WriteLine("cronologia.Capacity: " + cronologia.Capacity);
+            ///TAREFA: checar a capacidade da lista
 
-            //TAREFA: adicionar o filme "Episódio IV -Uma nova esperança"
-            cronologia.Add(esperanca);
+            ///TAREFA: adicionar o filme "Episódio IV -Uma nova esperança"
 
-            //TAREFA: checar novamente a capacidade da lista
-            Console.WriteLine("cronologia.Capacity: " + cronologia.Capacity);
+            ///TAREFA: checar novamente a capacidade da lista
 
-            //TAREFA: Adicionar no final: Império Contra Ataca e Retorno de Jedi
-            cronologia.AddRange(new[] { imperio, retorno });
+            ///TAREFA: Adicionar no final: Império Contra Ataca e Retorno de Jedi
 
-            //TAREFA: Declarar a lista com inicialização simplificada
-            //List<Filme> cronologia = new List<Filme>()
-            //{
-            //    esperanca,
-            //    imperio,
-            //    retorno,
-            //};
+            ///TAREFA: Declarar a lista com inicialização simplificada
 
-            //TAREFA: checar novamente a capacidade da lista
-            Console.WriteLine("cronologia.Capacity: " + cronologia.Capacity);
+            ///TAREFA: checar novamente a capacidade da lista
 
-            //TAREFA: imprimir a cronologia
-            Imprimir(cronologia);
+            ///TAREFA: imprimir a cronologia
 
-            //TAREFA: inserir Ameaça Fantasma no início da cronologia
-            cronologia.Insert(0, ameaca);
-            Imprimir(cronologia);
+            ///TAREFA: inserir Ameaça Fantasma no início da cronologia
 
-            //TAREFA: Inserir na segunda posição: Ataque dos Clones, Guerra dos Clone, Vingança dos Sith
-            cronologia.InsertRange(1, new [] { ataque, guerraClones, vinganca, rebels });
-            Imprimir(cronologia);
+            ///TAREFA: Inserir na segunda posição: Ataque dos Clones, Guerra dos Clone, Vingança dos Sith
 
-            //TAREFA: checar novamente a capacidade da lista
-            Console.WriteLine("cronologia.Capacity: " + cronologia.Capacity);
+            ///TAREFA: checar novamente a capacidade da lista
 
-            //TAREFA: adicionar Despertar da Força no fim da cronologia
-            cronologia.Add(despertar);
-            Imprimir(cronologia);
+            ///TAREFA: adicionar Despertar da Força no fim da cronologia
 
-            //TAREFA: inserir Rogue One antes de Uma Nova Esperança
-            var indiceEsperanca = cronologia.IndexOf(esperanca);
-            cronologia.Insert(indiceEsperanca, rogue);
-            Imprimir(cronologia);
+            ///TAREFA: inserir Rogue One antes de Uma Nova Esperança
 
-            //TAREFA: adicionar O Último Jedi ao final da cronologia
-            cronologia.Add(ultimo);
-            Imprimir(cronologia);
+            ///TAREFA: adicionar O Último Jedi ao final da cronologia
 
-            //TAREFA: exibir a cronologia inversa
-            cronologia.Reverse();
-            Imprimir(cronologia);
-            
-            //TAREFA: voltar a cronologia à ordem original
-            cronologia.Reverse();
-            Imprimir(cronologia);
+            ///TAREFA: exibir a cronologia inversa
 
-            //TAREFA: obter lista de filmes com atores
-            var filmesComAtores = new List<Filme>(cronologia);
-            var indiceGuerraClones = filmesComAtores.IndexOf(guerraClones);
-            filmesComAtores.RemoveAt(indiceGuerraClones);
-            filmesComAtores.Remove(rebels);
-            Imprimir(filmesComAtores);
+            ///TAREFA: voltar a cronologia à ordem original
 
-            //TAREFA: obter trilogia original (filmes lançados até 1983)
-            var trilogiaOriginal = new List<Filme>(filmesComAtores);
-            trilogiaOriginal.RemoveAll((f) => f.Ano <= 1983);
-            Imprimir(trilogiaOriginal);
+            ///TAREFA: obter lista de filmes só com atores (sem rebels e guerra dos clones)
 
-            //TAREFA: exibir primeiro filme da cronologia
-            Console.WriteLine("O primeiro filme da cronologia é " + cronologia[0]);
-            
-            //TAREFA: exibir último filme da cronologia
-            Console.WriteLine("O último filme da cronologia é " + cronologia[cronologia.Count - 1]);
+            ///TAREFA: obter trilogia original (filmes lançados até 1983)
 
-            //TAREFA: exibir filmes em ordem alfabética
-            var ordemAlfabetica = new List<Filme>(filmesComAtores);
-            ordemAlfabetica.Sort();
-            Imprimir(ordemAlfabetica);
+            ///TAREFA: exibir primeiro filme da cronologia
 
-            //TAREFA: exibir filmes em ordem de lançamento
-            var ordemLancamento = new List<Filme>(filmesComAtores);
-            ordemLancamento.Sort((f1, f2) => f1.Ano.CompareTo(f2.Ano));
-            Imprimir(ordemLancamento);
+            ///TAREFA: exibir último filme da cronologia
 
-            //TAREFA: exibir filmes da trilogia inicial (posições 4, 5 e 6)
-            var trilogiaInicial = new Filme[3];
-            ordemLancamento.CopyTo(3, trilogiaInicial, 0, 3);
-            Imprimir(trilogiaInicial);
-        }
+            ///TAREFA: exibir filmes em ordem alfabética
 
-        private static void Imprimir(IEnumerable<Filme> cronologia)
-        {
-            foreach (var filme in cronologia)
-            {
-                Console.WriteLine(filme);
-            }
-            Console.WriteLine();
+            ///TAREFA: exibir filmes em ordem de lançamento
+
+            ///TAREFA: exibir filmes da trilogia inicial (posições 4, 5 e 6)
         }
     }
 
-    public class Filme : IComparable
+    public class Filme
     {
         public Filme(string titulo, int ano)
         {
@@ -150,18 +93,6 @@ namespace _02._02
 
         public string Titulo { get; set; }
         public int Ano { get; set; }
-
-        public int CompareTo(object obj)
-        {
-            Filme este = this;
-            Filme outro = obj as Filme;
-
-            if (outro == null)
-            {
-                return -1;
-            }
-            return este.Titulo.CompareTo(outro.Titulo);
-        }
 
         public override string ToString()
         {
