@@ -47,17 +47,15 @@ namespace _02._02
 
             ///TAREFA: Declarar a lista com inicialização simplificada
 
-            ///TAREFA: checar novamente a capacidade da lista
-
             ///TAREFA: imprimir a cronologia
 
             ///TAREFA: inserir Ameaça Fantasma no início da cronologia
 
             ///TAREFA: Inserir na segunda posição: Ataque dos Clones, Guerra dos Clone, Vingança dos Sith
 
-            ///TAREFA: checar novamente a capacidade da lista
-
             ///TAREFA: adicionar Despertar da Força no fim da cronologia
+
+            ///TAREFA: checar novamente a capacidade da lista
 
             ///TAREFA: inserir Rogue One antes de Uma Nova Esperança
 
