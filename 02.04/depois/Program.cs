@@ -1,65 +1,116 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace _02._04
+namespace _02._03
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //SETS = CONJUNTOS
+            var esperanca = new Filme("Episódio IV -Uma nova esperança", 1977);
+            var imperio = new Filme("Episódio V -O Império Contra-Ataca", 1980);
+            var retorno = new Filme("Episódio VI -O Retorno de Jedi", 1983);
+            var ameaca = new Filme("Episódio I: A Ameaça Fantasma", 1999);
+            var ataque = new Filme("Episódio II: Ataque dos Clones", 2002);
+            var vinganca = new Filme("Episódio III: A Vingança dos Sith", 2005);
+            var despertar = new Filme("Episódio VII -O Despertar da Força", 2015);
+            var rogue = new Filme("Rogue One", 2016);
+            var ultimo = new Filme("Episódio VIII: Os Últimos Jedi", 2017);
+            
+            ///SETS = CONJUNTOS
 
-            //Duas propriedades do Set
-            //1. não permite duplicidade
-            //2. os elementos não são mantidos em ordem específica
+            ///Duas características do Set (conjunto)
+            ///1. não permite duplicidade
+            ///2. os elementos não são mantidos em ordem específica
 
-            //declarando set de alunos
-            ISet<string> alunos = new HashSet<string>();
-            //adicionando: vanessa, ana, rafael
-            alunos.Add("Vanessa Tonini");
-            alunos.Add("Ana Losnak");
-            alunos.Add("Rafael Nercessian");
+            ///declarando set de filmes
+            ///ISet<Filme> filmes = new HashSet<Filme>();
+            ///adicionando: esperanca, imperio, retorno
+            ///filmes.Add(esperanca);
+            ///filmes.Add(imperio);
+            ///filmes.Add(retorno);
 
-            //A linha abaixo não imprime os elementos!
-            Console.WriteLine(alunos); //System.Collections.Generic.HashSet`1[System.String]
+            ///Imprime os filmes separados por vírgula
+            ///Imprimir(filmes);
+            
+            ///qual a diferença para uma lista?? vamos ver agora
+            
+            ///adicionando: ameaca, ataque, vinganca
+            ///filmes.Add(ameaca);
+            ///filmes.Add(ataque);
+            ///filmes.Add(vinganca);
+            
+            ///Imprimir(filmes);
+            ///e a ordem???
+            
+            ///removendo imperio, adicionando despertar
+            ///filmes.Remove(imperio);
+            ///filmes.Add(despertar);
+            
+            ///imprimindo de novo
+            ///Imprimir(filmes);
+            
+            ///adicionando vinganca de novo - não gera erro de duplicidade!
+            ///filmes.Add(vinganca);
+            ///Imprimir(filmes);
+            
+            ///qual a vantagem do set sobre a lista? tempo de pesquisa!
+            ///https: //stackoverflow.com/a/10762995
+            
+            ///desempenho HashSet x List: escalabilidade X memória
+            
+            ///desvantagem: consumo de memória
+            
+            ///ordenando: sort
+            ///filmes.Sort();
+            ///copiando: filmesEmLista
+            ///List<Filme> filmesEmLista = new List<Filme>(filmes);
+            ///ordenando copia
+            ///filmesEmLista.Sort();
+            
+            ///imprimindo copia
+            ///Imprimir(filmesEmLista);
+            
+            ///comparando objetos
+        }
 
-            //Imprime os alunos separados por vírgula
-            Console.WriteLine(string.Join(",", alunos));
-
-            //qual a diferença para uma lista?? vamos ver agora
-
-            //adicionando: priscila, rollo, fabio
-            alunos.Add("Priscila Stuani");
-            alunos.Add("Rafael Rollo");
-            alunos.Add("Fabio Gushiken");
-
+        private static void Imprimir(IEnumerable<Filme> filmes)
+        {
+            foreach (var filme in filmes)
+            {
+                Console.WriteLine(filme);
+            }
             Console.WriteLine();
-            Console.WriteLine(string.Join(",", alunos));
-            //e a ordem???
+        }
+    }
 
-            //removendo ana, adicionando marcelo
-            alunos.Remove("Ana Losnak");
-            alunos.Add("Marcelo Oliveira");
-            //imprimindo de novo
-            Console.WriteLine(string.Join(",", alunos));
-            Console.WriteLine();
+    public class Filme : IComparable
+    {
+        public Filme(string titulo, int ano)
+        {
+            Titulo = titulo;
+            Ano = ano;
+        }
 
-            //adicionando gushiken de novo - não gera erro de duplicidade!
-            alunos.Add("Fabio Gushiken");
-            Console.WriteLine(string.Join(",", alunos));
+        public string Titulo { get; set; }
+        public int Ano { get; set; }
 
-            //qual a vantagem do set sobre a lista? look-up!
+        public int CompareTo(object obj)
+        {
+            Filme esta = this;
+            Filme outra = obj as Filme;
 
-            //desempenho HashSet x List: escalabilidade X memória
+            if (outra == null)
+            {
+                return 1;
+            }
 
-            //ordenando: sort
-            //alunos.Sort();
-            //copiando: alunosEmLista
-            List<string> alunosEmLista = new List<string>(alunos);
-            //ordenando copia
-            alunosEmLista.Sort();
-            //imprimindo copia
-            Console.WriteLine(string.Join(",", alunosEmLista));
+            return esta.Titulo.CompareTo(outra.Titulo);
+        }
+
+        public override string ToString()
+        {
+            return $"{Titulo} - {Ano}";
         }
     }
 }
