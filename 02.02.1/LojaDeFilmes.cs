@@ -17,13 +17,9 @@ namespace _02._02._1
         }
 
         private List<Filme> filmes;
-        public List<Filme> Filmes
+        public IReadOnlyCollection<Filme> Filmes
         {
-            get { return filmes; }
-            set
-            {
-                filmes = value;
-            }
+            get { return new ReadOnlyCollection<Filme>(filmes); }
         }
 
         public LojaDeFilmes()
@@ -51,7 +47,7 @@ namespace _02._02._1
                     new Diretor("Justin Kurzel",  6)
                 };
 
-            Filmes = new List<Filme> {
+            filmes = new List<Filme> {
                     new Filme (
                         new Diretor ( "James Cameron", 5 ),
                         "Avatar",
@@ -157,9 +153,9 @@ namespace _02._02._1
             Ano = ano;
         }
 
-        public Diretor Diretor { get; set; }
-        public string Titulo { get; set; }
-        public string Ano { get; set; }
+        public Diretor Diretor { get; }
+        public string Titulo { get; }
+        public string Ano { get; }
 
         public override string ToString()
         {
