@@ -138,8 +138,8 @@ namespace _02._02._1
 
     public class Diretor
     {
-        public string Nome { get; }
-        public int NumeroFilmes { get; }
+        public string Nome { get; set; }
+        public int NumeroFilmes { get; set; }
 
         public Diretor(string nome, int numeroFilmes)
         {
@@ -157,9 +157,9 @@ namespace _02._02._1
             Ano = ano;
         }
 
-        public Diretor Diretor { get; }
-        public string Titulo { get; }
-        public string Ano { get; }
+        public Diretor Diretor { get; set; }
+        public string Titulo { get; set; }
+        public string Ano { get; set; }
 
         public override string ToString()
         {
