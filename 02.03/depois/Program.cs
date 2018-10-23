@@ -12,31 +12,71 @@ namespace _02._04
             var retorno = new Filme("Episódio VI -O Retorno de Jedi", 1983);
             var ameaca = new Filme("Episódio I: A Ameaça Fantasma", 1999);
 
-            ///DICIONÁRIO
+            //DICIONÁRIO
 
-            ///declarando dicionário de filmes
+            //declarando dicionário de filmes
+            Dictionary<int, Filme> filmes = new Dictionary<int, Filme>();
 
-            ///adicionando: 34672-esperanca, 5617-imperio, 17645-retorno
+            //adicionando: 34672-esperanca, 5617-imperio, 17645-retorno
+            filmes.Add(34672, esperanca);
+            filmes.Add(5617, imperio);
+            filmes.Add(17645, retorno);
 
-            ///Imprimindo os filmes cadastrados
+            //Imprimindo os filmes cadastrados
+            foreach (var filme in filmes)
+            {
+                Console.WriteLine(filme);
+            }
 
-            ///Um dicionário permite associar uma chave (ID do filme) a um valor (o filme)
+            foreach (var filme in filmes)
+            {
+                Console.WriteLine(filme.Key);
+            }
 
-            ///Qual é o filme com ID 34672?
+            foreach (var filme in filmes)
+            {
+                Console.WriteLine(filme.Value);
+            }
 
-            ///e se tentarmos adicionar outro filme com mesma chave 34672?
+            foreach (var chave in filmes.Keys)
+            {
+                Console.WriteLine(chave);
+            }
 
-            ///e se quisermos trocar o filme que tem a mesma chave?
+            foreach (var valor in filmes.Values)
+            {
+                Console.WriteLine(valor);
+            }
 
-            ///pergunta: "Quem é o Filme 34672 agora?"
+            //Um dicionário permite associar uma chave (ID do filme) a um valor (o filme)
 
-            ///buscando uma chave que não existe: 34673
+            //Qual é o filme com ID 34672?
+            Console.WriteLine("Qual é o filme com ID 34672? " + filmes[34672]);
 
-            ///verificando se a chave 34673 existe
+            //e se tentarmos adicionar outro filme com mesma chave 34672?
+            //filmes.Add(34672, ameaca);
 
-            ///buscando uma chave 34673 de forma segura
+            //e se quisermos trocar o filme que tem a mesma chave?
+            filmes[34672] = ameaca;
 
-            ///Como um dicionário armazena os valores (diagrama)
+            //pergunta: "Quem é o Filme 34672 agora?"
+            Console.WriteLine("Quem é o Filme 34672 agora? " + filmes[34672]);
+
+            //buscando uma chave que não existe: 34673
+            //Console.WriteLine("buscando uma chave que não existe: 34673" + filmes[34673]);
+
+            //verificando se a chave 34673 existe
+            Console.WriteLine("verificando se a chave 34673 existe " + filmes.ContainsKey(34673));
+
+            //buscando uma chave 34673 de forma segura
+            filmes.TryGetValue(34673, out Filme filme34673);
+
+            if (filme34673 == null)
+            {
+                Console.WriteLine("Filme com chave 34673 não existe.");
+            }
+
+            //Como um dicionário armazena os valores (diagrama)
             ///<image url="$(ProjectDir)\image.png" scale=""/>
         }
     }
