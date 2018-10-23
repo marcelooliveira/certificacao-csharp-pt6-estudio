@@ -1,91 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace _02._01
+namespace _02._04
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //vamos declarar o curso
-            Curso csharpColecoes = new Curso("C# Colecoes", "Marcelo Oliveira");
-            //...e adicionar 3 aulas a esse curso
-            //Trabalhando com Listas - 21 minutos;
-            //Criando uma Aula - 20 minutos
-            //Modelando com Coleções - 24 minutos
-            csharpColecoes.Adiciona(new Aula("Trabalhando com Listas", 21));
-            csharpColecoes.Adiciona(new Aula("Criando uma Aula", 20));
-            csharpColecoes.Adiciona(new Aula("Modelando com Coleções", 24));
-            //um aluno também tem matrícula!
-            //vamos criar a class Aluno com Nome e NumeroMatricula
+            var esperanca = new Filme("Episódio IV -Uma nova esperança", 1977);
+            var imperio = new Filme("Episódio V -O Império Contra-Ataca", 1980);
+            var retorno = new Filme("Episódio VI -O Retorno de Jedi", 1983);
+            var ameaca = new Filme("Episódio I: A Ameaça Fantasma", 1999);
 
-            //Instanciando 3 alunos com suas matrícula:
-            //Vanessa Tonini - 34672
-            //Ana Losnak - 5617
-            //Rafael Nercessian - 17645
-            Aluno a1 = new Aluno("Vanessa Tonini", 34672);
-            Aluno a2 = new Aluno("Ana Losnak", 5617);
-            Aluno a3 = new Aluno("Rafael Nercessian", 17645);
-            //Precisamos Matricular os alunos no curso, criando um método
-            csharpColecoes.Matricula(a1);
-            csharpColecoes.Matricula(a2);
-            csharpColecoes.Matricula(a3);
+            //DICIONÁRIO
 
-            //Imprimindo os alunos matriculados
-            Console.WriteLine("Imprimindo os alunos matriculados");
-            foreach (var aluno in csharpColecoes.Alunos)
-            {
-                Console.WriteLine(aluno);
-            }
-            //no formato "[Nome: , Matrícula: ]"
+            //declarando dicionário de filmes
 
-            //Imprimir: "O aluno a1 está matriculado?"
-            Console.WriteLine($"O aluno a1 {a1.Nome} está matriculado?");
-            //Criar um método EstaMatriculado
-            Console.WriteLine(csharpColecoes.EstaMatriculado(a1));
-            //Vamos instanciar uma aluna (Vanessa Tonini)
-            Aluno tonini = new Aluno("Vanessa Tonini", 34672);
-            //e verificar se Tonini está matriculada
-            Console.WriteLine("Tonini está matriculada? " + csharpColecoes.EstaMatriculado(tonini));
-            //Mas a1 == a Tonini?
-            Console.WriteLine("a1 == a Tonini?");
-            Console.WriteLine(a1 == tonini);
-            //O que ocorreu? a1 é equals a Tonini?
-            Console.WriteLine("a1 é equals a Tonini?");
-            Console.WriteLine(a1.Equals(tonini));
+            //adicionando: 34672-esperanca, 5617-imperio, 17645-retorno
 
-            //limpando o console
-            Console.Clear();
-            //já temos método para saber se o aluno está matriculado.
-            //Mas agora precisamos buscar aluno por número de matrícula
+            //Imprimindo os filmes cadastrados
 
-            //pergunta: "Quem é o aluno com matrícula 5617?"
-            Console.WriteLine("Quem é o aluno com matrícula 5617?");
-            //implementando Curso.BuscaMatriculado
-            Aluno aluno5617 = csharpColecoes.BuscaMatriculado(5617);
-            //imprimindo o aluno5617 encontrado
-            Console.WriteLine("aluno5617: " + aluno5617);
-            //Funciona! Mas essa busca é eficiente?
-            //Introduzindo uma nova coleção: dicionário
-            //Um dicionário permite associar uma chave (no caso, matrícula)
-            //a um valor (o aluno)
-            //Vamos implementar um dicionário de alunos em Curso
+            //Um dicionário permite associar uma chave (ID do filme) a um valor (o filme)
 
-            //Quem é o aluno 5618?
-            Console.WriteLine("Quem é o aluno 5618?");
-            Console.WriteLine(csharpColecoes.BuscaMatriculado(5618));
+            //Qual é o filme com ID 34672?
 
-            //e se tentarmos adicionar outro aluno com mesma chave 5617?
-            Aluno fabio = new Aluno("Fabio Gushiken", 5617);
-            //csharpColecoes.Matricula(fabio);
-            //e se quisermos trocar o aluno que tem a mesma chave?
-            csharpColecoes.SubstituiAluno(fabio);
-            //pergunta: "Quem é o Aluno 5617 agora?"
-            Console.WriteLine("Quem é o Aluno 5617 agora?");
-            Console.WriteLine(csharpColecoes.BuscaMatriculado(5617));
+            //e se tentarmos adicionar outro filme com mesma chave 34672?
+
+            //e se quisermos trocar o filme que tem a mesma chave?
+
+            //pergunta: "Quem é o Filme 34672 agora?"
+
+            //buscando uma chave que não existe: 34673
+
+            //verificando se a chave 34673 existe
+
+            //buscando uma chave 34673 de forma segura
 
             //Como um dicionário armazena os valores (diagrama)
-            ///<image url="$(ProjectDir)\Slides\image2.png" scale=""/>
+            ///<image url="$(ProjectDir)\image.png" scale=""/>
+        }
+    }
+
+    public class Filme : IComparable
+    {
+        public Filme(string titulo, int ano)
+        {
+            Titulo = titulo;
+            Ano = ano;
+        }
+
+        public string Titulo { get; set; }
+        public int Ano { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            Filme esta = this;
+            Filme outra = obj as Filme;
+
+            if (outra == null)
+            {
+                return 1;
+            }
+
+            return esta.Titulo.CompareTo(outra.Titulo);
+        }
+
+        public override string ToString()
+        {
+            return $"{Titulo} - {Ano}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            Filme outra = obj as Filme;
+            if (outra == null)
+            {
+                return false;
+            }
+
+            return outra.Titulo.Equals(this.Titulo)
+                && outra.Ano.Equals(this.Ano);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -131496797;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Titulo);
+            hashCode = hashCode * -1521134295 + Ano.GetHashCode();
+            return hashCode;
         }
     }
 }
