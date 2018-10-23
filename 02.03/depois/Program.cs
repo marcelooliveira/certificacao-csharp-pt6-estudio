@@ -12,31 +12,31 @@ namespace _02._04
             var retorno = new Filme("Episódio VI -O Retorno de Jedi", 1983);
             var ameaca = new Filme("Episódio I: A Ameaça Fantasma", 1999);
 
-            //DICIONÁRIO
+            ///DICIONÁRIO
 
-            //declarando dicionário de filmes
+            ///declarando dicionário de filmes
 
-            //adicionando: 34672-esperanca, 5617-imperio, 17645-retorno
+            ///adicionando: 34672-esperanca, 5617-imperio, 17645-retorno
 
-            //Imprimindo os filmes cadastrados
+            ///Imprimindo os filmes cadastrados
 
-            //Um dicionário permite associar uma chave (ID do filme) a um valor (o filme)
+            ///Um dicionário permite associar uma chave (ID do filme) a um valor (o filme)
 
-            //Qual é o filme com ID 34672?
+            ///Qual é o filme com ID 34672?
 
-            //e se tentarmos adicionar outro filme com mesma chave 34672?
+            ///e se tentarmos adicionar outro filme com mesma chave 34672?
 
-            //e se quisermos trocar o filme que tem a mesma chave?
+            ///e se quisermos trocar o filme que tem a mesma chave?
 
-            //pergunta: "Quem é o Filme 34672 agora?"
+            ///pergunta: "Quem é o Filme 34672 agora?"
 
-            //buscando uma chave que não existe: 34673
+            ///buscando uma chave que não existe: 34673
 
-            //verificando se a chave 34673 existe
+            ///verificando se a chave 34673 existe
 
-            //buscando uma chave 34673 de forma segura
+            ///buscando uma chave 34673 de forma segura
 
-            //Como um dicionário armazena os valores (diagrama)
+            ///Como um dicionário armazena os valores (diagrama)
             ///<image url="$(ProjectDir)\image.png" scale=""/>
         }
     }
