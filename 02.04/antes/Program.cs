@@ -11,67 +11,36 @@ namespace _02._03
             var imperio = new Filme("Episódio V -O Império Contra-Ataca", 1980);
             var retorno = new Filme("Episódio VI -O Retorno de Jedi", 1983);
             var ameaca = new Filme("Episódio I: A Ameaça Fantasma", 1999);
-            var ataque = new Filme("Episódio II: Ataque dos Clones", 2002);
-            var vinganca = new Filme("Episódio III: A Vingança dos Sith", 2005);
-            var despertar = new Filme("Episódio VII -O Despertar da Força", 2015);
-            var rogue = new Filme("Rogue One", 2016);
-            var ultimo = new Filme("Episódio VIII: Os Últimos Jedi", 2017);
 
-            ///SETS = CONJUNTOS
+            //SETS = CONJUNTOS
 
-            ///Duas características do Set (conjunto)
-            ///1. não permite duplicidade
-            ///2. os elementos não são mantidos em ordem específica
+            //declarando set de filmes
 
-            ///declarando set de filmes
-            ///ISet<Filme> filmes = new HashSet<Filme>();
-            ///adicionando: esperanca, imperio, retorno
-            ///filmes.Add(esperanca);
-            ///filmes.Add(imperio);
-            ///filmes.Add(retorno);
+            //adicionando: esperanca, imperio, retorno
 
-            ///Imprime os filmes separados por vírgula
-            ///Imprimir(filmes);
+            //Características do Set (conjunto)
+            //1. não permite duplicidade
 
-            ///qual a diferença para uma lista?? vamos ver agora
+            //2. os elementos não são mantidos em ordem específica
 
-            ///adicionando: ameaca, ataque, vinganca
-            ///filmes.Add(ameaca);
-            ///filmes.Add(ataque);
-            ///filmes.Add(vinganca);
+            //3. não permite acesso pelo índice
 
-            ///Imprimir(filmes);
-            ///e a ordem???
+            //qual a vantagem do set sobre a lista? tempo de pesquisa!
+            //https ://stackoverflow.com/a/10762995
 
-            ///removendo imperio, adicionando despertar
-            ///filmes.Remove(imperio);
-            ///filmes.Add(despertar);
+            //desvantagem: consumo de memória
 
-            ///imprimindo de novo
-            ///Imprimir(filmes);
+            //É possível ordenar um conjunto?
 
-            ///adicionando vinganca de novo - não gera erro de duplicidade!
-            ///filmes.Add(vinganca);
-            ///Imprimir(filmes);
+            //copiando para uma lista
 
-            ///qual a vantagem do set sobre a lista? tempo de pesquisa!
-            ///https: //stackoverflow.com/a/10762995
+            //ordenando copia
 
-            ///desempenho HashSet x List: escalabilidade X memória
+            //imprimindo copia
 
-            ///desvantagem: consumo de memória
+            //verificando se objeto existe
 
-            ///ordenando: sort
-            ///filmes.Sort();
-            ///copiando: filmesEmLista
-            ///List<Filme> filmesEmLista = new List<Filme>(filmes);
-            ///ordenando copia
-            ///filmesEmLista.Sort();
-
-            ///imprimindo copia
-            ///Imprimir(filmesEmLista);
-
-            ///comparando objetos
+            //verificando se objeto com mesmos dados existe
         }
 
         private static void Imprimir(IEnumerable<Filme> filmes)
