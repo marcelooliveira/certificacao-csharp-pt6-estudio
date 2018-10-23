@@ -12,35 +12,54 @@ namespace _02._03
             var retorno = new Filme("Episódio VI -O Retorno de Jedi", 1983);
             var ameaca = new Filme("Episódio I: A Ameaça Fantasma", 1999);
 
-            ///SETS = CONJUNTOS
-            
-            ///declarando set de filmes
-            
-            ///adicionando: esperanca, imperio, retorno
+            //SETS = CONJUNTOS
 
-            ///Características do Set (conjunto)
-            ///1. não permite duplicidade
+            //declarando set de filmes
+            ISet<Filme> filmes = new HashSet<Filme>();
 
-            ///2. os elementos não são mantidos em ordem específica
+            //adicionando: esperanca, imperio, retorno
+            filmes.Add(esperanca);
+            filmes.Add(imperio);
+            filmes.Add(retorno);
 
-            ///3. não permite acesso pelo índice
+            //Características do Set (conjunto)
+            //1. não permite duplicidade
+            Imprimir(filmes);
+            filmes.Add(retorno);
+            Imprimir(filmes);
 
-            ///qual a vantagem do set sobre a lista? tempo de pesquisa!
-            ///https :///stackoverflow.com/a/10762995
+            //2. os elementos não são mantidos em ordem específica
+            filmes.Remove(imperio);
+            Imprimir(filmes);
+            filmes.Add(ameaca);
+            Imprimir(filmes);
 
-            ///desvantagem: consumo de memória
 
-            ///É possível ordenar um conjunto?
+            //3. não permite acesso pelo índice
+            //filmes[0];
 
-            ///copiando para uma lista
-            
-            ///ordenando copia
+            //qual a vantagem do set sobre a lista? tempo de pesquisa!
+            //https://stackoverflow.com/a/10762995
 
-            ///imprimindo copia
+            //desvantagem: consumo de memória
 
-            ///verificando se objeto existe
+            //É possível ordenar um conjunto?
+            //filmes.Sort();
 
-            ///verificando se objeto com mesmos dados existe
+            //copiando para uma lista
+            List<Filme> listaFilmes = new List<Filme>(filmes);
+            //ordenando copia
+            listaFilmes.Sort();
+
+            //imprimindo copia
+            Imprimir(listaFilmes);
+
+            //verificando se objeto existe
+            Console.WriteLine("O filme Uma nova Esperança existe? " + filmes.Contains(esperanca));
+
+            //verificando se objeto com mesmos dados existe
+            var novaEsperanca = new Filme("Episódio IV -Uma nova esperança", 1977);
+            Console.WriteLine("O filme Uma nova Esperança existe? " + filmes.Contains(novaEsperanca));
         }
 
         private static void Imprimir(IEnumerable<Filme> filmes)
@@ -80,6 +99,26 @@ namespace _02._03
         public override string ToString()
         {
             return $"{Titulo} - {Ano}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            Filme outra = obj as Filme;
+            if (outra == null)
+            {
+                return false;
+            }
+
+            return outra.Titulo.Equals(this.Titulo)
+                && outra.Ano.Equals(this.Ano);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -131496797;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Titulo);
+            hashCode = hashCode * -1521134295 + Ano.GetHashCode();
+            return hashCode;
         }
     }
 }
