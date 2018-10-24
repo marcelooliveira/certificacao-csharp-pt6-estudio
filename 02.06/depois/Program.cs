@@ -11,26 +11,17 @@ namespace _02._06
 
         static void Main(string[] args)
         {
-            Adicionar("FND-7714");
-            Adicionar("ABC-1234");
-            Adicionar("XYZ-9987");
+            placas.Add("FND-7714");
+            placas.Add("ABC-1234");
+            placas.Add("XYZ-9987");
 
             foreach (var placa in placas)
             {
                 Console.WriteLine(placa);
             }
 
-            //PROBLEMA: CRIAR UMA COLEÇÃO DE PLACAS DE CARRO VÁLIDAS
-            //SOLUÇÃO: CRIAR UMA COLEÇÃO PERSONALIZADA
-        }
-
-        private static void Adicionar(string numero)
-        {
-            if (!EhPlacaValida(numero))
-            {
-                throw new ArgumentException("Placa inválida: " + numero);
-            }
-            placas.Add(numero);
+            ///PROBLEMA: CRIAR UMA COLEÇÃO DE PLACAS DE CARRO VÁLIDAS
+            ///SOLUÇÃO: CRIAR UMA COLEÇÃO PERSONALIZADA
         }
 
         static bool EhPlacaValida(string value)
