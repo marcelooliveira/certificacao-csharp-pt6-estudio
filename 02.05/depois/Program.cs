@@ -7,13 +7,12 @@ namespace _02._05
     {
         static void Main(string[] args)
         {
-            //COLEÇÃO: FILA
+            //COLEÇÃO: FILA = QUEUE
             //Regra: primeiro que entra é o primeiro que sai
 
             //TAREFA: Implementar uma fila de pedágio
 
             ///<image url="$(ProjectDir)\Slides\queue0.png" scale=""/>
-            
 
         }
     }
