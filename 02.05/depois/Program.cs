@@ -12,6 +12,11 @@ namespace _02._05
             //COLEÇÃO: FILA
             //Regra: primeiro que entra é o primeiro que sai
 
+            //TAREFA: Implementar uma fila de pedágio
+
+            ///<image url="$(ProjectDir)\Slides\queue0.png" scale=""/>
+
+
             //entrou: van          
             string veiculo = "van";
             Enfileirar(veiculo);
