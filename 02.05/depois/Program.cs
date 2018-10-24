@@ -12,7 +12,7 @@ namespace _02._05
 
             ///TAREFA: Implementar uma fila de pedágio
 
-            ///<image url="$(ProjectDir)\Slides\queue0.png" scale=""/>
+            ///< image url="$(ProjectDir)\Slides\queue0.png" scale=""/>
 
         }
     }
