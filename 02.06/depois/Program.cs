@@ -1,65 +1,49 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace _02._06
 {
     class Program
     {
+        static List<string> placas = new List<string>();
+
         static void Main(string[] args)
         {
-            var navegador = new Navegador();
+            Adicionar("FND-7714");
+            Adicionar("ABC-1234");
+            Adicionar("XYZ-9987");
 
-            navegador.NavegarPara("google.com");
-            navegador.NavegarPara("caelum.com.br");
-            navegador.NavegarPara("alura.com.br");
-
-            navegador.Anterior();
-            navegador.Anterior();
-            navegador.Anterior();
-            navegador.Anterior();
-
-            navegador.Proximo();
-        }
-    }
-
-    internal class Navegador
-    {
-        private readonly Stack<string> historicoAnterior = new Stack<string>();
-        private readonly Stack<string> historicoProximo = new Stack<string>();
-
-        private string atual = "vazia";
-
-        public Navegador()
-        {
-            Console.WriteLine("Página atual: " + atual);
-        }
-
-        internal void Anterior()
-        {
-            if (historicoAnterior.Count > 0)
+            foreach (var placa in placas)
             {
-                historicoProximo.Push(atual);
-                atual = historicoAnterior.Pop();
-                Console.WriteLine("Página atual: " + atual);
+                Console.WriteLine(placa);
             }
+
+            //PROBLEMA: CRIAR UMA COLEÇÃO DE PLACAS DE CARRO VÁLIDAS
+            //SOLUÇÃO: CRIAR UMA COLEÇÃO PERSONALIZADA
         }
 
-        internal void NavegarPara(string url)
+        private static void Adicionar(string numero)
         {
-            historicoAnterior.Push(atual);
-            atual = url;
-            Console.WriteLine("Página atual: " + atual);
-        }
-
-        internal void Proximo()
-        {
-            if (historicoProximo.Count > 0)
+            if (!EhPlacaValida(numero))
             {
-                historicoAnterior.Push(atual);
-                atual = historicoProximo.Pop();
-                Console.WriteLine("Página atual: " + atual);
+                throw new ArgumentException("Placa inválida: " + numero);
             }
+            placas.Add(numero);
         }
-    }
 
+        static bool EhPlacaValida(string value)
+        {
+            Regex regex = new Regex(@"^[A-Z]{3}\-\d{4}$");
+
+            if (regex.IsMatch(value))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+    }
 }
